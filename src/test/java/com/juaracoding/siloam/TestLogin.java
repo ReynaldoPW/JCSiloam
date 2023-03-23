@@ -78,6 +78,28 @@ public class TestLogin {
         loginpage.invalidUsername("admin");
         extentTest.log(LogStatus.PASS,"User input username yang invalid");
    }
+   @When("Admin sudah login dan berada di home")
+   public void admin_sudah_login_dan_berada_di_home(){
+        loginpage.loginAdmin();
+        extentTest.log(LogStatus.PASS,"Admin sudah login dan berada di home");
+   }
+   @When("User sudah login dan berada di home")
+   public void user_sudah_login_dan_berada_di_home(){
+        loginpage.loginSales();
+        extentTest.log(LogStatus.PASS,"User sudah login dan berada di home");
+   }
+   @And("User menekan button logout")
+   public void user_menekan_button_logout(){
+        loginpage.logout();
+        extentTest.log(LogStatus.PASS,"User menekan button logout");
+   }
+
+   @And("Admin menekan button logout")
+   public void admin_menekan_button_logout(){
+        loginpage.logout();
+        extentTest.log(LogStatus.PASS,"Admin menekan button logout");
+   }
+
    @And("User input password yang terdaftar")
    public void user_input_password_yang_terdaftar(){
         loginpage.validPassword("1997-10-23");
@@ -171,5 +193,15 @@ public class TestLogin {
     public void user_mendapatkan_message_Wrong_username_or_password(){
         Assert.assertEquals(loginpage.getTxtWrongUsernameorPassword(),"Wrong username or password!");
         extentTest.log(LogStatus.PASS,"User mendapatkan message Wrong username or password");
+   }
+   @Then("Admin diarahkan ke halaman url")
+    public void admin_diarahkan_ke_halaman_url(){
+        Assert.assertEquals(loginpage.getTxtDikaSiloam(),"DIKA | SILOAM");
+        extentTest.log(LogStatus.PASS,"Admin diarahkan ke halaman url");
+   }
+   @Then("User diarahkan ke halaman url")
+    public void user_diarahkan_ke_halaman_url(){
+       Assert.assertEquals(loginpage.getTxtDikaSiloam(),"DIKA | SILOAM");
+       extentTest.log(LogStatus.PASS,"User diarahkan ke halaman url");
    }
 }

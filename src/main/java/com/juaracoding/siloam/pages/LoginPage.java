@@ -35,6 +35,9 @@ public class LoginPage {
     WebElement txtWrongUsernameorPassword;
     @FindBy(xpath = "//form[@class='margin-bottom-0']")
     WebElement txtPleaseFillThisFields;
+
+    @FindBy(xpath = "//b[normalize-space()='DIKA | SILOAM']")
+    WebElement txtDikaSiloam;
     public String getTxtHome(){
         return txtHome.getText();
     }
@@ -60,6 +63,16 @@ public class LoginPage {
         menuAdmin.click();
         btnLogout.click();
     }
+    public void loginAdmin(){
+       username.sendKeys("admindika");
+       password.sendKeys("d1k4@passw0rd");
+       btnLogin.click();
+    }
+    public void loginSales(){
+        username.sendKeys("D6200927");
+        password.sendKeys("1997-10-23");
+        btnLogin.click();
+    }
     public String getTxtPleaseFillsThisFields(){
         return txtPleaseFillThisFields.getText();
     }
@@ -72,4 +85,5 @@ public class LoginPage {
     public String getTxtLoginBtn(){
         return txtBtnLogin.getText();
     }
+    public String getTxtDikaSiloam(){return txtDikaSiloam.getText();}
 }

@@ -7,6 +7,11 @@ Feature: Login Admin
     Then Admin diarahkan ke halaman home
     And Admin logout dari web
 
+    Scenario: Admin logout dari web
+      When Admin sudah login dan berada di home
+      And Admin menekan button logout
+      Then Admin diarahkan ke halaman url
+
   Scenario: Input invalid username(case sensitive) dan password valid
     When Admin input username yang invalid
     And Admin input password yang terdaftar
@@ -68,6 +73,11 @@ Feature: Login Admin
     And User menekan button login
     Then User diarahkan ke halaman home
     And User logout dari web
+
+  Scenario: Sales logout dari web
+    When User sudah login dan berada di home
+    And User menekan button logout
+    Then User diarahkan ke halaman url
 
   Scenario: Sales Input username invalid case sensitive dan password valid
     When User input username yang invalid case sensitive
