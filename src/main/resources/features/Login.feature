@@ -1,4 +1,4 @@
-Feature: Login Admin
+Feature: Login Admin Sales
   Scenario: Input username dan password valid
     Given Admin membuka browser dan url
     When Admin input username yang terdaftar
@@ -18,10 +18,10 @@ Feature: Login Admin
     And Admin menekan button login
     Then Admin mendapatkan message Wrong username or password
 
-  Scenario: Input username valid dan password invalid
+  Scenario: Input username valid dan password invalid case sensitive
     When Admin logout dari web
     And Admin input username yang terdaftar
-    And Admin input password yang invalid
+    And Admin input password yang invalid case sensitive
     And Admin menekan button login
     Then Admin mendapatkan message Wrong username or password
 
@@ -39,7 +39,7 @@ Feature: Login Admin
 
   Scenario: Input username null dan password valid
     When Admin input username null
-    And Admin input password yang invalid admin123
+    And Admin input password yang terdaftar
     And Admin menekan button login
     Then Admin mendapatkan message Please fill the fields
 
@@ -87,14 +87,13 @@ Feature: Login Admin
 
 
   Scenario: Sales Input username valid dan password invalid case sensitive
-    And User logout dari web
     When User input username yang terdaftar
     And User input password yang invalid case sensitive
     And User menekan button login
     Then User mendapatkan message Wrong username or password
 
   Scenario: Sales Input username null dan password valid
-    And User logout dari web
+    And User menekan button logout
     When User input username null
     And User input password yang terdaftar
     And User menekan button login
