@@ -25,16 +25,17 @@ public enum TestScenarios {
     T22("Sales tidak mengisi alasan null"),
     T23("Sales Input data null nama"),
     T24("Sales Input data null Nomor Bpjs"),
-    T25("Sales Input data nomor Bpjs kurang dari 13 digit"),
-    T26("Sales Input karakter huruf di fields no Bpjs"),
-    T27("Sales Input data null Nomor KTP"),
-    T28("Sales Input data nomor KTP kurang dari 13 digit"),
-    T29("Sales Input data nomor KTP menggunakan karakter huruf"),
-    T30("Sales Input data null alamat"),
-    T31("Sales tidak mengisi kota KTP null"),
-    T32("Sales tidak mengisi faskes awal null"),
-    T33("Sales input valid data customer yang mempunyai kota ktp dan faskes tujuan sama"),
-    T34("Sales input valid data customer yang mempunyai kota ktp dan faskes tujuan beda");
+    T25("Sales Input data Nomor Bpjs yang sudah terdaftar"),
+    T26("Sales Input data nomor Bpjs kurang dari 13 digit"),
+    T27("Sales Input karakter huruf di fields no Bpjs"),
+    T28("Sales Input data null Nomor KTP"),
+    T29("Sales Input data nomor KTP kurang dari 13 digit"),
+    T30("Sales Input data nomor KTP menggunakan karakter huruf"),
+    T31("Sales Input data null alamat"),
+    T32("Sales tidak mengisi kota KTP null"),
+    T33("Sales tidak mengisi faskes awal null"),
+    T34("Sales input valid data customer yang mempunyai kota ktp dan faskes tujuan sama"),
+    T35("Sales input valid data customer yang mempunyai kota ktp dan faskes tujuan beda");
 
 
 

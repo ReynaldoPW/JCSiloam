@@ -74,7 +74,7 @@ public class TestLogin {
    }
    @When("User input username yang invalid")
    public void user_input_username_yang_invalid(){
-        loginpage.invalidUsername("admin");
+        loginpage.invalidUsername("rey");
         extentTest.log(LogStatus.PASS,"User input username yang invalid");
    }
    @When("Admin sudah login dan berada di home")

@@ -42,6 +42,12 @@ public class TestSales {
         salespage.inputBpjs("1234565678991");
         extentTest.log(LogStatus.PASS,"User input no bpjs valid");
     }
+    @And("User input no bpjs yang sudah terdaftar")
+    public void user_input_no_bpjs_yang_sudah_terdaftar(){
+        salespage.inputBpjs("1234565678990");
+        extentTest.log(LogStatus.PASS,"User input no bpjs yang sudah terdaftar");
+    }
+
     @And("User input no ktp valid")
     public void user_input_no_ktp_valid(){
         salespage.inputKtp("1212121212121212");
@@ -131,6 +137,11 @@ public class TestSales {
     public void user_input_alasan_null(){
         salespage.inputAlasan("");
         extentTest.log(LogStatus.PASS,"User input alasan null");
+    }
+    @Then("User mendapatkan message bpjs already exist")
+    public void user_mendapatkan_message_bpjs_already_exist(){
+       Assert.assertEquals(salespage.getTxtBpjsAlreadyExist(),"The Nomor BPJS already exist.");
+       extentTest.log(LogStatus.PASS,"User mendapatkan message bpjs already exist");
     }
 
     @Then("User mendapatkan message field alasan harus diisi")

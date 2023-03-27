@@ -72,6 +72,9 @@ public class SalesPages {
     @FindBy(xpath = "//span[normalize-space()='Field Alasan Harus Diisi!']")
     WebElement txtFieldAlasanMessage;
 
+    @FindBy(xpath = "//span[normalize-space()='The Nomor BPJS already exist.']")
+    WebElement txtBpjsAlreadyExist;
+
 //    public void inputData(String nama,String Bpjs, String KTP, String alamat, String faskesAwal, String alasan){
 //        fieldsName.sendKeys(nama);
 //        fieldsBpjs.sendKeys(Bpjs);
@@ -82,6 +85,9 @@ public class SalesPages {
 //        inputFaskesTujuanJakPus();
 //        btnSubmit.click();
 //    }
+    public String getTxtBpjsAlreadyExist(){
+        return txtBpjsAlreadyExist.getText();
+    }
     public String getTxtFieldAlasanMessage(){
         return txtFieldAlasanMessage.getText();
     }

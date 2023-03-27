@@ -8,6 +8,7 @@ Feature: Login Admin Sales
     And Admin logout dari web
 
     Scenario: Admin logout dari web
+      Given Admin membuka browser dan url
       When Admin sudah login dan berada di home
       And Admin menekan button logout
       Then Admin diarahkan ke halaman url
@@ -75,6 +76,7 @@ Feature: Login Admin Sales
     And User logout dari web
 
   Scenario: Sales logout dari web
+    Given Admin membuka browser dan url
     When User sudah login dan berada di home
     And User menekan button logout
     Then User diarahkan ke halaman url
