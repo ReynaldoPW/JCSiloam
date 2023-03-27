@@ -124,8 +124,9 @@ public class SalesPages {
     public void inputKtp(String noktp){
         fieldsKtp.sendKeys(noktp);
     }
-    public void inputCityJakPus(){
+    public void inputCityJakPus() throws InterruptedException {
         dropdownMenuCity.click();
+        Thread.sleep(1000);
         inputCity.sendKeys("Jakarta");
         pilihJakPus.click();
     }

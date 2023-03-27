@@ -22,8 +22,8 @@ public class TestSales {
         driver = Hooks.driver;
         extentTest = Hooks.extentTest;
     }
-    @Given("User sudah login dan berada di home")
-    public void user_sudah_login_dan_berada_di_home(){
+    @Given("User sudah login dan berada di home sales")
+    public void user_sudah_login_dan_berada_di_home_sales(){
         loginpage.loginSales("D6200927","1997-10-23");
         extentTest.log(LogStatus.PASS,"User sudah login dan berada di home");
     }
@@ -53,7 +53,7 @@ public class TestSales {
         extentTest.log(LogStatus.PASS,"User input alamat valid");
     }
     @And("User input Kota ktp valid")
-    public void user_input_Kota_ktp_valid(){
+    public void user_input_Kota_ktp_valid() throws InterruptedException {
         salespage.inputCityJakPus();
         extentTest.log(LogStatus.PASS,"User input Kota ktp valid");
     }
@@ -143,8 +143,8 @@ public class TestSales {
         Assert.assertEquals(salespage.getTxtSuccessSave(),"Data berhasil Di Simpan");
         extentTest.log(LogStatus.PASS,"User diarahkan ke halaman upload dokumen");
     }
-    @Then("User mendapatkan message Please fill the fields")
-    public void user_mendapatkan_message_Please_fill_the_fields(){
+    @Then("User mendapatkan message Please fill the fields sales")
+    public void user_mendapatkan_message_Please_fill_the_fields_sales(){
         String locatorWarningMessageNama = salespage.getTxtWarningPleaseInputMessage();
         Assert.assertTrue(locatorWarningMessageNama.contains("Please"));
         extentTest.log(LogStatus.PASS,"User mendapatkan message Please fill the fields nama");

@@ -1,6 +1,6 @@
 Feature: Sales input data customer
   Scenario: Sales input valid data customer yang mempunyai kota ktp dan faskes tujuan sama
-    Given User sudah login dan berada di home
+    Given User sudah login dan berada di home sales
     When User click menu input
     And User input nama valid
     And User input no bpjs valid
@@ -35,7 +35,7 @@ Feature: Sales input data customer
         And User input faskes awal
         And User input faskes tujuan
         And User click button simpan data
-        Then User mendapatkan message Please fill the fields
+        Then User mendapatkan message Please fill the fields sales
 
         Scenario: Sales Input data null Nomor Bpjs
           When User click menu input
