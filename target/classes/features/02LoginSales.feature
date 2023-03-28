@@ -1,3 +1,4 @@
+Feature: Login Sales
 Scenario: Sales logout dari web
 Given Admin membuka browser dan url
 When User sudah login dan berada di home

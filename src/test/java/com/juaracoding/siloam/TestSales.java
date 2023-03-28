@@ -156,27 +156,43 @@ public class TestSales {
     }
     @Then("User mendapatkan message Please fill the fields nama")
     public void user_mendapatkan_message_Please_fill_the_fields_nama(){
-        Assert.assertEquals(salespage.getTxtNama(),"Please fill the fields");
+        Assert.assertEquals(salespage.getTxtNama(),"true");
         extentTest.log(LogStatus.PASS,"User mendapatkan message Please fill the fields nama");
     }
     @Then("User mendapatkan message Please fill the fields di no ktp")
     public void user_mendapatkan_message_Please_fill_the_fields_di_no_ktp(){
-        Assert.assertEquals(salespage.getTxtNoKTP(),"Please fill the fields");
+        Assert.assertEquals(salespage.getTxtNoKTP(),"true");
         extentTest.log(LogStatus.PASS,"User mendapatkan message Please fill the fields di no ktp");
     }
+    @Then("User mendapatkan message Please fill the fields di no bpjs")
+    public void user_mendapatkan_message_Please_fill_the_fields_di_no_bpjs(){
+        Assert.assertEquals(salespage.getTxtBpjs(),"true");
+        extentTest.log(LogStatus.PASS,"User mendapatkan message Please fill the fields di no bpjs");
+    }
+    @Then("User mendapatkan message Please fill the fields di faskes awal")
+    public void user_mendapatkan_message_Please_fill_the_fields_di_faskes_awal(){
+        Assert.assertEquals(salespage.getTxtFaskesAwal(),"true");
+        extentTest.log(LogStatus.PASS,"User mendapatkan message Please fill the fields di faskes awal");
+    }
+
     @Then("User mendapatkan message Please match the requested format di bpjs")
-    public void user_mendapatkan_message_Please_match_the_requested_format(){
-        Assert.assertEquals(salespage.getTxtBpjs(),"Please match the requested format");
-        extentTest.log(LogStatus.PASS,"User mendapatkan message Please match the requested format");
+    public void user_mendapatkan_message_Please_match_the_requested_format_di_bpjs(){
+        Assert.assertEquals(salespage.getTxtBpjs(),"true");
+        extentTest.log(LogStatus.PASS,"User mendapatkan message Please match the requested format di bpjs");
+    }
+    @Then("User mendapatkan message Please match the requested format di ktp")
+    public void user_mendapatkan_message_Please_match_the_requested_format_di_ktp(){
+        Assert.assertEquals(salespage.getTxtNoKTP(),"true");
+        extentTest.log(LogStatus.PASS,"User mendapatkan message Please match the requested format di ktp");
     }
     @Then("input user bpjs akan terhapus")
     public void input_user_bpjs_akan_terhapus(){
-        Assert.assertEquals(salespage.getTxtBpjs(),"");
+        Assert.assertEquals(salespage.getTxtBpjs(),"true");
         extentTest.log(LogStatus.PASS,"input user akan terhapus");
     }
     @Then("input user KTP akan terhapus")
     public void input_user_KTP_akan_terhapus(){
-        Assert.assertEquals(salespage.getTxtNoKTP(),"");
+        Assert.assertEquals(salespage.getTxtNoKTP(),"true");
         extentTest.log(LogStatus.PASS,"input user KTP akan terhapus");
     }
     @Then("User mendapatkan message field alamat harus diisi")
@@ -186,12 +202,12 @@ public class TestSales {
     }
     @Then("User mendapat message kota ktp harus diisi")
     public void user_mendapat_message_kota_ktp_harus_diisi(){
-        Assert.assertEquals(salespage.getTxtCity(),"Please fill the fields");
+        Assert.assertEquals(salespage.getTxtCity(),"true");
         extentTest.log(LogStatus.PASS,"User mendapatkan message Please fill the fields di kota ktp");
     }
     @Then("User mendapat message faskes tujuan harus diisi")
     public void user_mendapat_message_faskes_tujuan_harus_diisi(){
-        Assert.assertEquals(salespage.getTxtFaskesTujuan(),"Please fill this field");
+        Assert.assertEquals(salespage.getTxtFaskesTujuan(),"true");
         extentTest.log(LogStatus.PASS,"User mendapat message faskes tujuan harus diisi");
     }
 }

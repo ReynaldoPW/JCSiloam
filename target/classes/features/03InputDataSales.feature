@@ -96,7 +96,7 @@ Feature: Sales input data customer
     And User input faskes awal
     And User input faskes tujuan
     And User click button simpan data
-    Then User mendapatkan message field alamat harus diisi di alamat
+    Then User mendapatkan message field alamat harus diisi
 
   Scenario: Sales tidak mengisi kota KTP null
     When User click menu input
@@ -108,7 +108,7 @@ Feature: Sales input data customer
     And User input faskes tujuan berbeda
     And User input alasan
     And User click button simpan data
-    Then User mendapat message kota ktp harus diisi di kota ktp
+    Then User mendapat message kota ktp harus diisi
 
   Scenario: Sales tidak mengisi faskes awal null
     When User click menu input

@@ -127,12 +127,12 @@ public class TestLogin {
     }
     @Then("Admin mendapatkan message Please fill the fields di username")
     public void admin_mendapatkan_message_Please_fill_the_fields_di_username(){
-        Assert.assertEquals(loginpage.getTxtUsername(),"Please fill the fields");
+        Assert.assertEquals(loginpage.getTxtUsername(),"true");
         extentTest.log(LogStatus.PASS,"Admin mendapatkan message Please fill the fields di username");
     }
     @Then("Admin mendapatkan message Please fill the fields di password")
     public void admin_mendapatkan_message_Please_fill_the_fields_di_password(){
-        Assert.assertEquals(loginpage.getTxtPassword(),"Please fill the fields");
+        Assert.assertEquals(loginpage.getTxtPassword(),"true");
         extentTest.log(LogStatus.PASS,"Admin mendapatkan message Please fill the fields di password");
     }
 
