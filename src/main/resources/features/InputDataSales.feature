@@ -11,7 +11,7 @@ Feature: Sales input data customer
     And User input faskes awal
     And User input faskes tujuan
     And User click button simpan data
-    Then User mendapatkan message Please fill the fields sales
+    Then User mendapatkan message Please fill the fields nama
 
   Scenario: Sales Input data null Nomor Bpjs
     When User click menu input

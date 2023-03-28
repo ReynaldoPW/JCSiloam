@@ -154,16 +154,19 @@ public class TestSales {
         Assert.assertEquals(salespage.getTxtSuccessSave(),"Data berhasil Di Simpan");
         extentTest.log(LogStatus.PASS,"User diarahkan ke halaman upload dokumen");
     }
-    @Then("User mendapatkan message Please fill the fields sales")
-    public void user_mendapatkan_message_Please_fill_the_fields_sales(){
-        String locatorWarningMessageNama = salespage.getTxtWarningPleaseInputMessage();
-        Assert.assertTrue(locatorWarningMessageNama.contains("Please"));
+    @Then("User mendapatkan message Please fill the fields nama")
+    public void user_mendapatkan_message_Please_fill_the_fields_nama(){
+        Assert.assertEquals(salespage.getTxtNama(),"Please fill the fields");
         extentTest.log(LogStatus.PASS,"User mendapatkan message Please fill the fields nama");
     }
-    @Then("User mendapatkan message Please match the requested format")
+    @Then("User mendapatkan message Please fill the fields di no ktp")
+    public void user_mendapatkan_message_Please_fill_the_fields_di_no_ktp(){
+        Assert.assertEquals(salespage.getTxtNoKTP(),"Please fill the fields");
+        extentTest.log(LogStatus.PASS,"User mendapatkan message Please fill the fields di no ktp");
+    }
+    @Then("User mendapatkan message Please match the requested format di bpjs")
     public void user_mendapatkan_message_Please_match_the_requested_format(){
-        String locatorWarningMessage = salespage.getTxtWarningPleaseInputMessage();
-        Assert.assertTrue(locatorWarningMessage.contains("Please"));
+        Assert.assertEquals(salespage.getTxtBpjs(),"Please match the requested format");
         extentTest.log(LogStatus.PASS,"User mendapatkan message Please match the requested format");
     }
     @Then("input user bpjs akan terhapus")
@@ -183,14 +186,12 @@ public class TestSales {
     }
     @Then("User mendapat message kota ktp harus diisi")
     public void user_mendapat_message_kota_ktp_harus_diisi(){
-        String locatorWarningMessageKotaKtp = salespage.getTxtWarningPleaseInputMessage();
-        Assert.assertTrue(locatorWarningMessageKotaKtp.contains("Please"));
-        extentTest.log(LogStatus.PASS,"User mendapatkan message Please fill the fields nama");
+        Assert.assertEquals(salespage.getTxtCity(),"Please fill the fields");
+        extentTest.log(LogStatus.PASS,"User mendapatkan message Please fill the fields di kota ktp");
     }
     @Then("User mendapat message faskes tujuan harus diisi")
     public void user_mendapat_message_faskes_tujuan_harus_diisi(){
-        String locatorWarningMessageFaskesTujuan = salespage.getTxtWarningPleaseInputMessage();
-        Assert.assertTrue(locatorWarningMessageFaskesTujuan.contains("Please"));
+        Assert.assertEquals(salespage.getTxtFaskesTujuan(),"Please fill this field");
         extentTest.log(LogStatus.PASS,"User mendapat message faskes tujuan harus diisi");
     }
 }

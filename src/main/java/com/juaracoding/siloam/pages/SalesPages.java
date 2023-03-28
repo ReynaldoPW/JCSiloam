@@ -118,9 +118,6 @@ public class SalesPages {
     public String getTxtAlasan(){
         return txtAlasan.getAttribute("required");
     }
-    public String getTxtSubmit(){
-        return txtSubmit.getText();
-    }
     public void inputName(String name){
        fieldsName.sendKeys(name);
     }
