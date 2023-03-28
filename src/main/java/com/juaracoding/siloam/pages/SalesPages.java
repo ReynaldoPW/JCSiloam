@@ -86,37 +86,37 @@ public class SalesPages {
 //        btnSubmit.click();
 //    }
     public String getTxtBpjsAlreadyExist(){
-        return txtBpjsAlreadyExist.getText();
+        return txtBpjsAlreadyExist.getAttribute("required");
     }
     public String getTxtFieldAlasanMessage(){
-        return txtFieldAlasanMessage.getText();
+        return txtFieldAlasanMessage.getAttribute("required");
     }
     public String getTxtFieldAlamatMessage(){
-        return txtFieldAlamatMessage.getText();
+        return txtFieldAlamatMessage.getAttribute("required");
     }
     public String getTxtNoKTP(){
-        return txtKtp.getText();
+        return txtKtp.getAttribute("required");
     }
     public String getTxtNama(){
-        return txtName.getText();
+        return txtName.getAttribute("required");
     }
     public String getTxtBpjs(){
-        return txtBpjs.getText();
+        return txtBpjs.getAttribute("required");
     }
     public String getTxtAddress(){
-        return txtAddress.getText();
+        return txtAddress.getAttribute("required");
     }
     public String getTxtCity(){
-        return txtCity.getText();
+        return txtCity.getAttribute("required");
     }
     public String getTxtFaskesAwal(){
-        return txtFaskesAwal.getText();
+        return txtFaskesAwal.getAttribute("required");
     }
     public String getTxtFaskesTujuan(){
-        return txtFaskesTujuan.getText();
+        return txtFaskesTujuan.getAttribute("required");
     }
     public String getTxtAlasan(){
-        return txtAlasan.getText();
+        return txtAlasan.getAttribute("required");
     }
     public String getTxtSubmit(){
         return txtSubmit.getText();

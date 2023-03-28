@@ -23,8 +23,6 @@ public class LoginPage {
     WebElement txtPassword;
     @FindBy(xpath = "//button[normalize-space()='Login']")
     WebElement btnLogin;
-    @FindBy(xpath = "//button[normalize-space()='Login']")
-    WebElement txtBtnLogin;
     @FindBy(xpath = "//h1[normalize-space()='Home']")
     WebElement txtHome;
     @FindBy(xpath = "//span[@class='d-none d-md-inline']")
@@ -33,8 +31,6 @@ public class LoginPage {
     WebElement btnLogout;
     @FindBy(xpath = "//div[@class='alert alert-danger alert-dismissable']")
     WebElement txtWrongUsernameorPassword;
-    @FindBy(xpath = "//div[@class='login-content']")
-    WebElement txtPleaseFillThisFields;
 
     @FindBy(xpath = "//b[normalize-space()='DIKA | SILOAM']")
     WebElement txtDikaSiloam;
@@ -73,17 +69,11 @@ public class LoginPage {
         this.password.sendKeys("1997-10-23");
         btnLogin.click();
     }
-    public String getTxtPleaseFillsThisFields(){
-        return txtPleaseFillThisFields.getText();
-    }
     public String getTxtUsername(){
-        return txtUsername.getText();
+        return txtUsername.getAttribute("required");
     }
     public String getTxtPassword(){
-        return txtPassword.getText();
-    }
-    public String getTxtLoginBtn(){
-        return txtBtnLogin.getText();
+        return txtPassword.getAttribute("required");
     }
     public String getTxtDikaSiloam(){return txtDikaSiloam.getText();}
 }
