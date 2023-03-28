@@ -2,6 +2,8 @@ package com.juaracoding.siloam.pages;
 
 import com.juaracoding.siloam.drivers.DriverSingleton;
 import io.cucumber.java.en.When;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -78,13 +80,13 @@ public class SalesPages {
 
 
     public String getTxtBpjsAlreadyExist(){
-        return txtBpjsAlreadyExist.getAttribute("required");
+        return txtBpjsAlreadyExist.getText();
     }
     public String getTxtFieldAlasanMessage(){
-        return txtFieldAlasanMessage.getAttribute("required");
+        return txtFieldAlasanMessage.getText();
     }
     public String getTxtFieldAlamatMessage(){
-        return txtFieldAlamatMessage.getAttribute("required");
+        return txtFieldAlamatMessage.getText();
     }
     public String getTxtNoKTP(){
         return txtKtp.getAttribute("required");
@@ -127,16 +129,17 @@ public class SalesPages {
         pilihJakPus.click();
     }
     public void pilihKotaKtp(String kota){
-        txtPilihKota.sendKeys(kota);
+        txtPilihKota.sendKeys(kota,Keys.ENTER);
     }
     public void btnFaskesTujuan(){
         btnFaskesTujuan.click();
     }
     public void setTxtFaskesTujuan(String faskesTujuan){
-        txtFaskesTujuan.sendKeys(faskesTujuan);
+        txtFaskesTujuan.sendKeys(faskesTujuan, Keys.ENTER);
     }
     public void pilihFaskesTujuan(){
-        pilihFaskesJakpus.click();
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        js.executeScript("arguments[0].click();", pilihFaskesJakpus);
     }
     public void pilihFaskesTujuanJakSel(){
        pilihFaskesJakSel.click();

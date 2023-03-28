@@ -48,9 +48,6 @@ Feature: Login Admin
     And Admin menekan button login
     Then Admin mendapatkan message Wrong username or password
 
-
-
-
   Scenario: Input username kurang dari 8 atau lebih dari 16 digit dan password valid
     When Admin input username kurang dari 8 atau lebih dari 16 digit
     And Admin input password yang terdaftar
