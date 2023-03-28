@@ -59,8 +59,10 @@ public class TestSales {
         extentTest.log(LogStatus.PASS,"User input alamat valid");
     }
     @And("User input Kota ktp valid")
-    public void user_input_Kota_ktp_valid() throws InterruptedException {
-        salespage.inputCityJakPus();
+    public void user_input_Kota_ktp_valid(){
+        salespage.btnKota();
+        salespage.pilihKotaKtp("Jakarta");
+        salespage.pilihKota();
         extentTest.log(LogStatus.PASS,"User input Kota ktp valid");
     }
     @And("User input faskes awal")
@@ -70,12 +72,16 @@ public class TestSales {
     }
     @And("User input faskes tujuan")
     public void user_input_faskes_tujuan(){
-        salespage.inputFaskesTujuanJakPus();
+        salespage.btnFaskesTujuan();
+        salespage.setTxtFaskesTujuan("Jakarta");
+        salespage.pilihFaskesTujuan();
         extentTest.log(LogStatus.PASS,"User input faskes tujuan");
     }
     @And("User input faskes tujuan berbeda")
     public void user_input_faskes_tujuan_berbeda(){
-        salespage.inputCityJakSel();
+        salespage.btnFaskesTujuan();
+        salespage.setTxtFaskesTujuan("Jakarta");
+        salespage.pilihFaskesTujuanJakSel();
         extentTest.log(LogStatus.PASS,"User input faskes tujuan berbeda");
     }
     @And("User input alasan")

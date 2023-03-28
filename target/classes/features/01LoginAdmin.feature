@@ -5,6 +5,24 @@ Feature: Login Admin
     And Admin menekan button logout
     Then Admin diarahkan ke halaman url
 
+  Scenario: Input username null dan password null
+    When Admin input username null
+    And Admin input password null
+    And Admin menekan button login
+    Then Admin mendapatkan message Please fill the fields di username
+
+  Scenario: Input username valid dan password null
+    When Admin input username yang terdaftar
+    And Admin input password null
+    And Admin menekan button login
+    Then Admin mendapatkan message Please fill the fields di password
+
+  Scenario: Input username null dan password valid
+    When Admin input username null
+    And Admin input password yang terdaftar
+    And Admin menekan button login
+    Then Admin mendapatkan message Please fill the fields di username
+
   Scenario: Input invalid username(case sensitive) dan password valid
     When Admin input username yang invalid
     And Admin input password yang terdaftar
@@ -30,23 +48,8 @@ Feature: Login Admin
     And Admin menekan button login
     Then Admin mendapatkan message Wrong username or password
 
-  Scenario: Input username null dan password valid
-    When Admin input username null
-    And Admin input password yang terdaftar
-    And Admin menekan button login
-    Then Admin mendapatkan message Please fill the fields di username
 
-  Scenario: Input username valid dan password null
-    When Admin input username yang terdaftar
-    And Admin input password null
-    And Admin menekan button login
-    Then Admin mendapatkan message Please fill the fields di password
 
-  Scenario: Input username null dan password null
-    When Admin input username null
-    And Admin input password null
-    And Admin menekan button login
-    Then Admin mendapatkan message Please fill the fields di username
 
   Scenario: Input username kurang dari 8 atau lebih dari 16 digit dan password valid
     When Admin input username kurang dari 8 atau lebih dari 16 digit

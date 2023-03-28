@@ -1,6 +1,7 @@
 Feature: Sales input data customer
 
   Scenario: Sales Input data null nama
+    And User logout dari web
     Given User sudah login dan berada di home sales
     When User click menu input
     And User input nama null

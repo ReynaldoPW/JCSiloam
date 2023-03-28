@@ -1,6 +1,7 @@
 package com.juaracoding.siloam.pages;
 
 import com.juaracoding.siloam.drivers.DriverSingleton;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -50,10 +51,17 @@ public class LoginPage {
         btnLogin.click();
     }
     public void invalidUsername(String username){
+
         this.username.sendKeys(username);
     }
     public void invalidPassword(String password){
         this.password.sendKeys(password);
+    }
+    public void nullUsername(String username){
+        this.username.sendKeys(username, Keys.CONTROL,"a",Keys.DELETE);
+    }
+    public void nullPassword(String password){
+        this.username.sendKeys(password,Keys.CONTROL,"a",Keys.DELETE);
     }
     public void logout(){
         menuAdmin.click();

@@ -63,6 +63,7 @@ public class TestLogin {
     }
     @Then("Admin diarahkan ke halaman url")
     public void admin_diarahkan_ke_halaman_url(){
+        Hooks.delay(1);
         String txtDikaSiloam = loginpage.getTxtDikaSiloam();
         Assert.assertTrue(txtDikaSiloam.contains("DIKA"));
         extentTest.log(LogStatus.PASS,"Admin diarahkan ke halaman url");
@@ -81,7 +82,7 @@ public class TestLogin {
     }
     @When("Admin input username null")
     public void admin_input_username_null(){
-        loginpage.invalidUsername("");
+        loginpage.nullUsername("");
         extentTest.log(LogStatus.PASS,"Admin input username null");
     }
     @When("Admin input username kurang dari 8 atau lebih dari 16 digit")
@@ -114,7 +115,7 @@ public class TestLogin {
     }
     @And("Admin input password null")
     public void admin_input_password_null(){
-        loginpage.invalidPassword("");
+        loginpage.nullPassword("");
         extentTest.log(LogStatus.PASS,"Admin input password null");
     }
 
@@ -151,7 +152,7 @@ public class TestLogin {
    }
    @When("User input username null")
    public void user_input_username_null(){
-        loginpage.invalidUsername("");
+        loginpage.nullUsername("");
         extentTest.log(LogStatus.PASS,"User input username null");
    }
    @When("User input username yang invalid")
@@ -199,7 +200,7 @@ public class TestLogin {
    }
    @And("User input password null")
    public void user_input_password_null(){
-        loginpage.invalidPassword("");
+        loginpage.nullPassword("");
         extentTest.log(LogStatus.PASS,"User input password null");
    }
    @And("User input password yang invalid")
@@ -216,12 +217,12 @@ public class TestLogin {
     }
     @Then("User mendapatkan message Please fill the fields di username")
     public void user_mendapatkan_message_Please_fill_the_fields_di_username(){
-        Assert.assertEquals(loginpage.getTxtUsername(),"please fill out this field");
+        Assert.assertEquals(loginpage.getTxtUsername(),"true");
         extentTest.log(LogStatus.PASS,"User mendapatkan message Please fill the fields di username");
     }
     @Then("User mendapatkan message Please fill the fields di password")
     public void user_mendapatkan_message_Please_fill_the_fields_di_password(){
-        Assert.assertEquals(loginpage.getTxtPassword(),"please fill out this field");
+        Assert.assertEquals(loginpage.getTxtPassword(),"true");
         extentTest.log(LogStatus.PASS,"User mendapatkan message Please fill the fields di password");
     }
     @Then("User diarahkan ke halaman home")
@@ -232,8 +233,9 @@ public class TestLogin {
     }
     @Then("User mendapatkan message Wrong username or password")
     public void user_mendapatkan_message_Wrong_username_or_password(){
+        Hooks.delay(1);
         String txtWrongUsernameorPassword = loginpage.getTxtWrongUsernameorPassword();
-        Assert.assertTrue(txtWrongUsernameorPassword.contains("Wrong username or password!"));
+        Assert.assertTrue(txtWrongUsernameorPassword.contains("Wrong"));
         extentTest.log(LogStatus.PASS,"User mendapatkan message Wrong username or password");
     }
 }

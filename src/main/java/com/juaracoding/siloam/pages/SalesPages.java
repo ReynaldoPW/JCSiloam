@@ -31,27 +31,28 @@ public class SalesPages {
     @FindBy(xpath = "//textarea[@id='address']")
     WebElement txtAddress;
     @FindBy(xpath = "//span[@id='select2-ktp_city-container']")
-    WebElement dropdownMenuCity;
+    WebElement btnKota;
     @FindBy(xpath = "//input[@role='textbox']")
-    WebElement inputCity;
-    @FindBy(xpath = "//li[@id='select2-ktp_city-result-8183-KOTA JAKARTA PUSAT']")
+    WebElement txtFaskesTujuan;
+
+    @FindBy(xpath = "//input[@role='textbox']")
+    WebElement txtPilihKota;
+    @FindBy(xpath = "//*[text()=\"KOTA JAKARTA PUSAT\"]")
     WebElement pilihJakPus;
-    @FindBy(xpath = "//li[@id='select2-ktp_city-result-mzfg-KOTA JAKARTA SELATAN']")
-    WebElement pilihJakSel;
     @FindBy(xpath = "//li[@id='select2-destination_faskes-result-lijv-2||Clinic Kepu Timur||Kota Jakarta Pusat']")
     WebElement pilihFaskesJakpus;
     @FindBy(xpath = "//li[@id='select2-destination_faskes-result-mvp8-3||Clinic Bona Indah||Kota Jakarta Selatan']")
     WebElement pilihFaskesJakSel;
-    @FindBy(xpath = "//span[@id='select2-ktp_city-container']")
-    WebElement txtCity;
     @FindBy(xpath = "//input[@id='origin_faskes']")
     WebElement faskesAwal;
     @FindBy(xpath = "//input[@id='origin_faskes']")
     WebElement txtFaskesAwal;
     @FindBy(xpath = "//span[@id='select2-destination_faskes-container']")
-    WebElement dropdownFaskesTujuan;
+    WebElement btnFaskesTujuan;
+
     @FindBy(xpath = "//span[@id='select2-destination_faskes-container']")
-    WebElement txtFaskesTujuan;
+    WebElement txtFaskesTujuanField;
+
     @FindBy(xpath = "//textarea[@id='reason']")
     WebElement fieldsAlasan;
     @FindBy(xpath = "//textarea[@id='reason']")
@@ -75,16 +76,7 @@ public class SalesPages {
     @FindBy(xpath = "//span[normalize-space()='The Nomor BPJS already exist.']")
     WebElement txtBpjsAlreadyExist;
 
-//    public void inputData(String nama,String Bpjs, String KTP, String alamat, String faskesAwal, String alasan){
-//        fieldsName.sendKeys(nama);
-//        fieldsBpjs.sendKeys(Bpjs);
-//        fieldsKtp.sendKeys(KTP);
-//        fieldsAddress.sendKeys(alamat);
-//        inputCityJakPus();
-//        inputFaskesAwal(faskesAwal);
-//        inputFaskesTujuanJakPus();
-//        btnSubmit.click();
-//    }
+
     public String getTxtBpjsAlreadyExist(){
         return txtBpjsAlreadyExist.getAttribute("required");
     }
@@ -107,7 +99,7 @@ public class SalesPages {
         return txtAddress.getAttribute("required");
     }
     public String getTxtCity(){
-        return txtCity.getAttribute("required");
+        return btnKota.getAttribute("required");
     }
     public String getTxtFaskesAwal(){
         return txtFaskesAwal.getAttribute("required");
@@ -127,24 +119,32 @@ public class SalesPages {
     public void inputKtp(String noktp){
         fieldsKtp.sendKeys(noktp);
     }
-    public void inputCityJakPus() throws InterruptedException {
-        dropdownMenuCity.click();
-        Thread.sleep(1000);
-        inputCity.sendKeys("Jakarta");
+    public void btnKota(){
+        btnKota.click();
+    }
+
+    public void pilihKota(){
         pilihJakPus.click();
     }
-    public void inputCityJakSel(){
-        dropdownMenuCity.click();
-        inputCity.sendKeys("Jakarta");
-        pilihJakSel.click();
+    public void pilihKotaKtp(String kota){
+        txtPilihKota.sendKeys(kota);
+    }
+    public void btnFaskesTujuan(){
+        btnFaskesTujuan.click();
+    }
+    public void setTxtFaskesTujuan(String faskesTujuan){
+        txtFaskesTujuan.sendKeys(faskesTujuan);
+    }
+    public void pilihFaskesTujuan(){
+        pilihFaskesJakpus.click();
+    }
+    public void pilihFaskesTujuanJakSel(){
+       pilihFaskesJakSel.click();
     }
     public void inputFaskesAwal(String faskesA){
         faskesAwal.sendKeys(faskesA);
     }
-    public void inputFaskesTujuanJakPus(){
-        dropdownFaskesTujuan.click();
-        pilihFaskesJakpus.click();
-    }
+
     public String getTxtWarningPleaseInputMessage(){
         return txtWarningMessageInputFields.getText();
     }
