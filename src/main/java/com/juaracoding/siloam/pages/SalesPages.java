@@ -34,26 +34,29 @@ public class SalesPages {
     WebElement txtAddress;
     @FindBy(xpath = "//span[@id='select2-ktp_city-container']")
     WebElement btnKota;
-    @FindBy(xpath = "//input[@role='textbox']")
+    @FindBy(xpath = "//select[@id='destination_faskes']")
     WebElement txtFaskesTujuan;
+    @FindBy(xpath = "//select[@id='destination_faskes']")
+    WebElement selectFaskesTujuan;
 
-    @FindBy(xpath = "//input[@role='textbox']")
+    @FindBy(xpath = "//select[@id='ktp_city']")
     WebElement txtPilihKota;
-    @FindBy(xpath = "//*[text()=\"KOTA JAKARTA PUSAT\"]")
-    WebElement pilihJakPus;
-    @FindBy(xpath = "//li[@id='select2-destination_faskes-result-lijv-2||Clinic Kepu Timur||Kota Jakarta Pusat']")
-    WebElement pilihFaskesJakpus;
-    @FindBy(xpath = "//li[@id='select2-destination_faskes-result-mvp8-3||Clinic Bona Indah||Kota Jakarta Selatan']")
-    WebElement pilihFaskesJakSel;
+    @FindBy(xpath = "//select[@id='ktp_city']")
+    WebElement selectKotaKtp;
+
+//    @FindBy(xpath = "//*[text()=\"KOTA JAKARTA PUSAT\"]")
+//    WebElement pilihJakPus;
+//    @FindBy(xpath = "//li[@id='select2-destination_faskes-result-lijv-2||Clinic Kepu Timur||Kota Jakarta Pusat']")
+//    WebElement pilihFaskesJakpus;
+//    @FindBy(xpath = "//li[@id='select2-destination_faskes-result-mvp8-3||Clinic Bona Indah||Kota Jakarta Selatan']")
+//    WebElement pilihFaskesJakSel;
     @FindBy(xpath = "//input[@id='origin_faskes']")
     WebElement faskesAwal;
     @FindBy(xpath = "//input[@id='origin_faskes']")
     WebElement txtFaskesAwal;
-    @FindBy(xpath = "//span[@id='select2-destination_faskes-container']")
-    WebElement btnFaskesTujuan;
+//    @FindBy(xpath = "//span[@id='select2-destination_faskes-container']")
+//    WebElement btnFaskesTujuan;
 
-    @FindBy(xpath = "//span[@id='select2-destination_faskes-container']")
-    WebElement txtFaskesTujuanField;
 
     @FindBy(xpath = "//textarea[@id='reason']")
     WebElement fieldsAlasan;
@@ -72,7 +75,7 @@ public class SalesPages {
     @FindBy(xpath = "//span[normalize-space()='Field Alamat Harus Diisi!']")
     WebElement txtFieldAlamatMessage;
 
-    @FindBy(xpath = "//span[normalize-space()='Field Alasan Harus Diisi!']")
+    @FindBy(xpath = "//*[@id=\"row-reason\"]/span")
     WebElement txtFieldAlasanMessage;
 
     @FindBy(xpath = "//span[normalize-space()='The Nomor BPJS already exist.']")
@@ -101,13 +104,13 @@ public class SalesPages {
         return txtAddress.getAttribute("required");
     }
     public String getTxtCity(){
-        return btnKota.getAttribute("required");
+        return txtPilihKota.getAttribute("required");
     }
     public String getTxtFaskesAwal(){
         return txtFaskesAwal.getAttribute("required");
     }
     public String getTxtFaskesTujuan(){
-        return txtFaskesTujuanField.getAttribute("required");
+        return txtFaskesTujuan.getAttribute("required");
     }
     public String getTxtAlasan(){
         return txtAlasan.getAttribute("required");
@@ -121,29 +124,30 @@ public class SalesPages {
     public void inputKtp(String noktp){
         fieldsKtp.sendKeys(noktp);
     }
-    public void btnKota(){
-        btnKota.click();
-    }
+
 
     public void pilihKota(){
-        pilihJakPus.click();
+        Select selectKota = new Select(selectKotaKtp);
+        selectKota.selectByValue("KOTA JAKARTA PUSAT");
     }
     public void pilihKotaKtp(String kota){
         txtPilihKota.sendKeys(kota,Keys.ENTER);
     }
-    public void btnFaskesTujuan(){
-        btnFaskesTujuan.click();
-    }
+
     public void setTxtFaskesTujuan(String faskesTujuan){
         txtFaskesTujuan.sendKeys(faskesTujuan, Keys.ENTER);
     }
     public void pilihFaskesTujuan(){
-        JavascriptExecutor js = (JavascriptExecutor) driver;
-        js.executeScript("arguments[0].click();", pilihFaskesJakpus);
+//        JavascriptExecutor js = (JavascriptExecutor) driver;
+//        js.executeScript("arguments[0].click();", pilihFaskesJakpus);
+        Select selectFaskesDestination = new Select(selectFaskesTujuan);
+        selectFaskesDestination.selectByValue("2||Clinic Kepu Timur||Kota Jakarta Pusat");
     }
-    public void pilihFaskesTujuanJakSel(){
-       pilihFaskesJakSel.click();
+    public void pilihFaskesTujuanBeda(){
+        Select selectFaskesDestinationBeda = new Select(selectFaskesTujuan);
+        selectFaskesDestinationBeda.selectByValue("3||Clinic Bona Indah||Kota Jakarta Selatan");
     }
+
     public void inputFaskesAwal(String faskesA){
         faskesAwal.sendKeys(faskesA);
     }

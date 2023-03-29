@@ -39,7 +39,7 @@ public class TestSales {
     }
     @And("User input no bpjs valid")
     public void user_input_no_bpjs_valid(){
-        salespage.inputBpjs("1234565678989");
+        salespage.inputBpjs("1234565678971");
         extentTest.log(LogStatus.PASS,"User input no bpjs valid");
     }
     @And("User input no bpjs yang sudah terdaftar")
@@ -60,8 +60,7 @@ public class TestSales {
     }
     @And("User input Kota ktp valid")
     public void user_input_Kota_ktp_valid(){
-        salespage.btnKota();
-        salespage.pilihKotaKtp("KOTA JAKARTA PUSAT");
+        salespage.pilihKota();
         extentTest.log(LogStatus.PASS,"User input Kota ktp valid");
     }
     @And("User input faskes awal")
@@ -71,14 +70,12 @@ public class TestSales {
     }
     @And("User input faskes tujuan")
     public void user_input_faskes_tujuan(){
-        salespage.btnFaskesTujuan();
-        salespage.setTxtFaskesTujuan("KOTA JAKARTA PUSAT");
+        salespage.pilihFaskesTujuan();
         extentTest.log(LogStatus.PASS,"User input faskes tujuan");
     }
     @And("User input faskes tujuan berbeda")
     public void user_input_faskes_tujuan_berbeda(){
-        salespage.btnFaskesTujuan();
-        salespage.setTxtFaskesTujuan("Clinic Bona Indah || Kota Jakarta Selatan");
+        salespage.pilihFaskesTujuanBeda();
         extentTest.log(LogStatus.PASS,"User input faskes tujuan berbeda");
     }
     @And("User input alasan")
@@ -149,8 +146,10 @@ public class TestSales {
 
     @Then("User mendapatkan message field alasan harus diisi")
     public void User_mendapatkan_message_field_alasan_harus_diisi(){
-        String txtAlasanWajibDiisi = salespage.getTxtFieldAlasanMessage();
-        Assert.assertTrue(txtAlasanWajibDiisi.contains("Alasan"));
+//        String txtAlasanWajibDiisi = salespage.getTxtFieldAlasanMessage();
+//        Assert.assertTrue(txtAlasanWajibDiisi.contains("Alasan"));
+        Hooks.delay(1);
+        Assert.assertEquals(salespage.getTxtFieldAlasanMessage(),"Field Alasan Harus Diisi!");
         extentTest.log(LogStatus.PASS,"User mendapatkan message field alasan harus diisi");
     }
     @Then("User diarahkan ke halaman upload dokumen")
@@ -208,7 +207,8 @@ public class TestSales {
     }
     @Then("User mendapat message kota ktp harus diisi")
     public void user_mendapat_message_kota_ktp_harus_diisi(){
-        Assert.assertEquals(salespage.getTxtCity(),"null");
+        salespage.getTxtCity();
+        Assert.assertEquals(salespage.getTxtCity(),"true");
         extentTest.log(LogStatus.PASS,"User mendapatkan message Please fill the fields di kota ktp");
     }
     @Then("User mendapat message faskes tujuan harus diisi")
