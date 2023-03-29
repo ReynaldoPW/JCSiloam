@@ -39,7 +39,7 @@ public class TestSales {
     }
     @And("User input no bpjs valid")
     public void user_input_no_bpjs_valid(){
-        salespage.inputBpjs("1234565678999");
+        salespage.inputBpjs("1234565678989");
         extentTest.log(LogStatus.PASS,"User input no bpjs valid");
     }
     @And("User input no bpjs yang sudah terdaftar")
@@ -149,7 +149,8 @@ public class TestSales {
 
     @Then("User mendapatkan message field alasan harus diisi")
     public void User_mendapatkan_message_field_alasan_harus_diisi(){
-        Assert.assertEquals(salespage.getTxtFieldAlasanMessage(),"null");
+        String txtAlasanWajibDiisi = salespage.getTxtFieldAlasanMessage();
+        Assert.assertTrue(txtAlasanWajibDiisi.contains("Alasan"));
         extentTest.log(LogStatus.PASS,"User mendapatkan message field alasan harus diisi");
     }
     @Then("User diarahkan ke halaman upload dokumen")

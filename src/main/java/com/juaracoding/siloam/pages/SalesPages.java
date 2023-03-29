@@ -65,7 +65,7 @@ public class SalesPages {
     WebElement txtSubmit;
     @FindBy(xpath = "//span[normalize-space()='Input']")
     WebElement menuInput;
-    @FindBy(xpath = "//div[@role='alert']")
+    @FindBy(xpath = "//*[@id=\"content\"]/div[1]")
     WebElement txtSuccessSave;
     @FindBy(xpath = "//div[@id='default-tab-1']")
     WebElement txtWarningMessageInputFields;
@@ -107,7 +107,7 @@ public class SalesPages {
         return txtFaskesAwal.getAttribute("required");
     }
     public String getTxtFaskesTujuan(){
-        return txtFaskesTujuan.getAttribute("required");
+        return txtFaskesTujuanField.getAttribute("required");
     }
     public String getTxtAlasan(){
         return txtAlasan.getAttribute("required");

@@ -120,7 +120,6 @@ Feature: Sales input data customer
     And User input Kota ktp valid
     And User input faskes awal null
     And User input faskes tujuan
-    And User input alasan
     And User click button simpan data
     Then User mendapatkan message Please fill the fields di faskes awal
 
@@ -131,7 +130,6 @@ Feature: Sales input data customer
     And User input no ktp valid
     And User input alamat valid
     And User input faskes awal
-    And User input alasan
     And User click button simpan data
     Then User mendapat message faskes tujuan harus diisi
 
