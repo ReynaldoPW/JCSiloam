@@ -41,7 +41,7 @@ public class TestSales {
     }
     @And("User input no bpjs valid")
     public void user_input_no_bpjs_valid(){
-        salespage.inputBpjs("1234565678971");
+        salespage.inputBpjs("1234235678545");
         extentTest.log(LogStatus.PASS,"User input no bpjs valid");
     }
     @And("User input no bpjs yang sudah terdaftar")
@@ -217,34 +217,6 @@ public class TestSales {
     public void user_mendapat_message_faskes_tujuan_harus_diisi(){
         Assert.assertEquals(salespage.getTxtFaskesTujuan(),"true");
         extentTest.log(LogStatus.PASS,"User mendapat message faskes tujuan harus diisi");
-    }
-
-    //INPUT TTD DIGITAL
-    @Given("User sudah membuka alamat url login input data dan upload dokumen")
-    public void user_sudah_membuka_alamat_url_login_input_data_dan_upload_dokumen(){
-        driver.get(Constants.URL);
-        loginpage.loginSales("D6200927","1997-10-23");
-        salespage.inputData("test","1234565678913","1212121212121212","jljl","abcde","jauh");
-        salespage.uploadDokumen(salespage.fileJpg, salespage.fileJpg, salespage.fileJpg);
-        extentTest.log(LogStatus.PASS,"User sudah membuka alamat url login input data dan upload dokumen");
-    }
-    @When("User edit nama menjadi null")
-    public  void user_edit_nama_menjadi_null(){
-        salespage.clickBtnEdit();
-        salespage.editHapusNama();
-        extentTest.log(LogStatus.PASS,"User edit nama menjadi null");
-    }
-    @And("User click simpan data")
-    public void user_click_simpan_data(){
-        salespage.simpanDataEdit();
-        extentTest.log(LogStatus.PASS,"User click simpan data");
-    }
-    @Then("User mendapatkan info data berhasil disimpan")
-    public void user_mendapatkan_info_data_berhasil_disimpan(){
-        Hooks.delay(1);
-        String txtDataBerhasilDisimpan = salespage.getTxtDataBerhasilDisimpan();
-        Assert.assertTrue(txtDataBerhasilDisimpan.contains("Data"));
-        extentTest.log(LogStatus.PASS,"User mendapatkan info data berhasil disimpan");
     }
 
 }
