@@ -1,8 +1,8 @@
 package com.juaracoding.siloam.utils;
 
 public enum TestScenarios {
-    T1("user ingin melihat data dari tanggal 1 maret sampai 31 maret status pending"),
-    T2("User edit dengan menghapus nama");
+    T1("user ingin melihat data dari tanggal 1 maret sampai 31 maret status pending");
+//    T2("User edit dengan menghapus nama");
 //    T2("Input username null dan password null"),
 //    T3("Input username valid dan password null"),
 //    T4("Input username null dan password valid"),
