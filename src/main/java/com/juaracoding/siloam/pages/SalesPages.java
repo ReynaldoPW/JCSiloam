@@ -31,10 +31,7 @@ public class SalesPages {
     WebElement txtKtp;
     @FindBy(xpath = "//textarea[@id='address']")
     WebElement fieldsAddress;
-    @FindBy(xpath = "//textarea[@id='address']")
-    WebElement txtAddress;
-    @FindBy(xpath = "//span[@id='select2-ktp_city-container']")
-    WebElement btnKota;
+
     @FindBy(xpath = "//select[@id='destination_faskes']")
     WebElement txtFaskesTujuan;
     @FindBy(xpath = "//select[@id='destination_faskes']")
@@ -45,7 +42,7 @@ public class SalesPages {
     @FindBy(xpath = "//select[@id='ktp_city']")
     WebElement selectKotaKtp;
 
-//    @FindBy(xpath = "//*[text()=\"KOTA JAKARTA PUSAT\"]")
+    //    @FindBy(xpath = "//*[text()=\"KOTA JAKARTA PUSAT\"]")
 //    WebElement pilihJakPus;
 //    @FindBy(xpath = "//li[@id='select2-destination_faskes-result-lijv-2||Clinic Kepu Timur||Kota Jakarta Pusat']")
 //    WebElement pilihFaskesJakpus;
@@ -76,48 +73,47 @@ public class SalesPages {
     @FindBy(xpath = "//span[normalize-space()='Field Alamat Harus Diisi!']")
     WebElement txtFieldAlamatMessage;
 
-    @FindBy(xpath = "//*[@id=\"row-reason\"]/span")
+    @FindBy(xpath = "//span[normalize-space()='Field Alasan Harus Diisi!']")
     WebElement txtFieldAlasanMessage;
 
     @FindBy(xpath = "//span[normalize-space()='The Nomor BPJS already exist.']")
     WebElement txtBpjsAlreadyExist;
 
-
+    @FindBy(xpath = "//h1[normalize-space()='Form Input']")
+    WebElement txtHeaderFormInput;
     public String getTxtBpjsAlreadyExist(){
         return txtBpjsAlreadyExist.getText();
     }
     public String getTxtFieldAlasanMessage(){
         return txtFieldAlasanMessage.getText();
     }
-    public String getTxtFieldAlamatMessage(){
-        return txtFieldAlamatMessage.getText();
-    }
+
     public String getTxtNoKTP(){
-        return txtKtp.getAttribute("required");
+        return txtKtp.getText();
     }
     public String getTxtNama(){
-        return txtName.getAttribute("required");
+        return txtName.getText();
     }
     public String getTxtBpjs(){
-        return txtBpjs.getAttribute("required");
+        return txtBpjs.getText();
     }
-    public String getTxtAddress(){
-        return txtAddress.getAttribute("required");
+    public String getTxtAddressMessage(){
+        return txtFieldAlamatMessage.getText();
     }
     public String getTxtCity(){
         return txtPilihKota.getAttribute("required");
     }
     public String getTxtFaskesAwal(){
-        return txtFaskesAwal.getAttribute("required");
+        return txtFaskesAwal.getText();
     }
     public String getTxtFaskesTujuan(){
-        return txtFaskesTujuan.getAttribute("required");
+        return txtFaskesTujuan.getText();
     }
     public String getTxtAlasan(){
         return txtAlasan.getAttribute("required");
     }
     public void inputName(String name){
-       fieldsName.sendKeys(name);
+        fieldsName.sendKeys(name);
     }
     public void inputBpjs(String nobpjs){
         fieldsBpjs.sendKeys(nobpjs);
@@ -168,6 +164,9 @@ public class SalesPages {
     public void menuInput(){
         menuInput.click();
     }
+    public String getTxtMenuInput(){
+        return txtHeaderFormInput.getText();
+    }
     public String getTxtSuccessSave(){
         return txtSuccessSave.getText();
     }
@@ -188,7 +187,7 @@ public class SalesPages {
         btnSubmit.click();
     }
 
-    //Upload Dokumen
+    //------------------------Upload Dokumen-------------
     @FindBy(xpath = "//span[normalize-space()='Foto Faskes Awal']")
     WebElement fotoFaskesAwalBtn;
     @FindBy(xpath = "//span[normalize-space()='Foto Faskes Tujuan']")
@@ -199,8 +198,10 @@ public class SalesPages {
     WebElement chooseFile;
 
 
-    @FindBy(xpath = "//button[@id='btnSave']")
+    @FindBy(xpath = "//button[@id='btnSaveFoto']")
     WebElement btnSaveFile;
+    @FindBy(xpath = "//button[@id='btnSave']")
+    WebElement btnSaveFileUploadDokumen;
     @FindBy(xpath = "//button[@class='swal-button swal-button--confirm']")
     WebElement btnAlert;
     @FindBy(xpath = "//a[@class='btn btn-primary']")
@@ -213,17 +214,17 @@ public class SalesPages {
         fotoFaskesAwalBtn.click();
         chooseFile.sendKeys(directoryFile1);
         delay(1);
-        btnSaveFile.click();
+        btnSaveFileUploadDokumen.click();
         btnAlert.click();
         fotoFaskesTujuanBtn.click();
         chooseFile.sendKeys(directoryFile2);
         delay(1);
-        btnSaveFile.click();
+        btnSaveFileUploadDokumen.click();
         btnAlert.click();
         fotoTtdDigial.click();
         chooseFile.sendKeys(directoryFile3);
         delay(1);
-        btnSaveFile.click();
+        btnSaveFileUploadDokumen.click();
         btnAlert.click();
         delay(1);
         btnSelanjutnya.click();
@@ -231,7 +232,7 @@ public class SalesPages {
         driver.switchTo().defaultContent();
     }
 
-    //ttd digital
+    //-----------------------------------ttd digital
     @FindBy(xpath = "//button[@id='btnEdit']")
     WebElement btnEdit;
     @FindBy(xpath = "//button[@id='btnUpdate']")
@@ -240,22 +241,15 @@ public class SalesPages {
     @FindBy(xpath = "//button[@id='btnCancelUpdate']")
     WebElement btnCancel;
 
-    @FindBy(xpath = "//body[1]/div[5]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/form[1]/div[1]/table[1]/tbody[1]/tr[1]/td[3]/div[1]/a[2]")
+    @FindBy(xpath = "//body[1]/div[5]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/form[1]/div[1]/table[1]/tbody[1]/tr[1]/td[3]/div[1]/a[2]/i[1]")
     WebElement deleteBefore;
 
-    @FindBy(xpath = "//body[1]/div[5]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/form[1]/div[1]/table[1]/tbody[1]/tr[2]/td[3]/div[1]/a[2]")
+    @FindBy(xpath = "//body[1]/div[5]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/form[1]/div[1]/table[1]/tbody[1]/tr[2]/td[3]/div[1]/a[2]/i[1]")
     WebElement deleteAfter;
-    @FindBy(xpath = "//body[1]/div[5]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/form[1]/div[1]/table[1]/tbody[1]/tr[3]/td[3]/div[1]/a[2]")
+    @FindBy(xpath = "//body[1]/div[5]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/form[1]/div[1]/table[1]/tbody[1]/tr[2]/td[3]/div[1]/a[2]/i[1]")
     WebElement deleteTTD;
 
-    @FindBy(xpath = "//*[@id=\"fileupload\"]/div/table/tbody/tr[1]/td[4]/a")
-    WebElement btnAddFilesBefore;
 
-    @FindBy(xpath = "//*[@id=\"fileupload\"]/div/table/tbody/tr[2]/td[4]/a")
-    WebElement btnAddFilesAfter;
-
-    @FindBy(xpath = "//*[@id=\"fileupload\"]/div/table/tbody/tr[3]/td[4]/a")
-    WebElement btnAddFilesTTD;
 
     @FindBy(xpath = "//a[normalize-space()='Submit']")
     WebElement btnSubmitTTD;
@@ -268,36 +262,103 @@ public class SalesPages {
     @FindBy(xpath = "//div[@role='alert']")
     WebElement txtDataBerhasilDiSimpan;
 
+    @FindBy(xpath = "//span[normalize-space()='Field Faskes Asal Harus Diisi!']")
+    WebElement txtFieldFaskesAsalMessage;
+    @FindBy(xpath = "//*[@id=\"fileupload\"]/div/table/tbody/tr[1]/td[4]/a")
+    WebElement fotoBefore;
+    @FindBy(xpath = "//*[@id=\"fileupload\"]/div/table/tbody/tr[2]/td[4]/a")
+    WebElement fotoAfter;
+    @FindBy(xpath = "//*[@id=\"fileupload\"]/div/table/tbody/tr[3]/td[4]/a")
+    WebElement fotoTTD;
+
+    public String getTxtDokumenTidakLengkap(){
+        return txtAlertDokumenTidakLengkap.getText();
+    }
+    public String getTxtDokumenLengkap(){
+        return txtAlertDokumenLengkap.getText();
+    }
     public void clickBtnEdit(){
         btnEdit.click();
     }
     public void editHapusNama(){
         fieldsName.sendKeys(Keys.CONTROL,"a",Keys.DELETE);
     }
+    public void editHapusbpjs(){
+        fieldsBpjs.sendKeys(Keys.CONTROL,"a",Keys.DELETE);
+    }
+    public void editHapusbpjskurang13(){
+        fieldsBpjs.sendKeys(Keys.CONTROL,"a","123");
+    }
+    public void editHapusktpkurang16(){
+        fieldsBpjs.sendKeys(Keys.CONTROL,"a","123565");
+    }
+    public void editHapusNoKTP(){
+        fieldsKtp.sendKeys(Keys.CONTROL,"a",Keys.DELETE);
+    }
+    public void editHapusAlamat(){
+        fieldsAddress.sendKeys(Keys.CONTROL,"a",Keys.DELETE);
+    }
+    public void editHapusFaskesAwal(){
+        faskesAwal.sendKeys(Keys.CONTROL,"a",Keys.DELETE);
+    }
+    public void editPilihKota(){
+        Select selectKota = new Select(selectKotaKtp);
+        selectKota.selectByValue("KOTA JAKARTA TIMUR");
+    }
+    public String getTxtFaskesAsalMessage(){
+        return txtFieldFaskesAsalMessage.getText();
+    }
     public void simpanDataEdit(){
+
         btnUpdate.click();
     }
+    public void editHapusAlasan(){
+        fieldsAlasan.sendKeys(Keys.CONTROL,"a",Keys.DELETE);
+    }
     public void hapusGambarBefore(){
-        deleteBefore.click();
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        js.executeScript("arguments[0].click();",deleteBefore);
+        driver.switchTo().alert().accept();
+        driver.switchTo().defaultContent();
+    }
+    public void gantiGambarBefore(String directoryFileJpg){
+        fotoBefore.click();
+        chooseFile.sendKeys(directoryFileJpg);
+        delay(1);
+        btnSaveFile.click();
+        btnAlert.click();
     }
     public void hapusGambarAfter(){
-        deleteAfter.click();
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        js.executeScript("arguments[0].click();",deleteAfter);
+        driver.switchTo().alert().accept();
+        driver.switchTo().defaultContent();
+    }
+    public void gantiGambarAfter(String directoryFileJpg){
+        fotoAfter.click();
+        chooseFile.sendKeys(directoryFileJpg);
+        delay(1);
+        btnSaveFile.click();
+        btnAlert.click();
     }
     public void hapusGambarTTD(){
-        deleteTTD.click();
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        js.executeScript("arguments[0].click();",deleteTTD);
+        driver.switchTo().alert().accept();
+        driver.switchTo().defaultContent();
     }
-    public void addNewFilesBefore(){
-        btnAddFilesBefore.click();
-    }
-    public void addNewFilesAfter(){
-        btnAddFilesAfter.click();
-    }
-    public void addNewFilesTTD(){
-        btnAddFilesTTD.click();
+    public void gantiGambarTTD(String directoryFileJpg){
+        fotoTTD.click();
+        chooseFile.sendKeys(directoryFileJpg);
+        delay(1);
+        btnSaveFile.click();
+        btnAlert.click();
     }
 
     public void submitTTD(){
         btnSubmitTTD.click();
+        driver.switchTo().alert().accept();
+        driver.switchTo().defaultContent();
     }
     public void scrollToSubmit(){
         JavascriptExecutor js = (JavascriptExecutor) driver;

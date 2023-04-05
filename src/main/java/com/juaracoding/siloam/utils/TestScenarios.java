@@ -1,8 +1,29 @@
 package com.juaracoding.siloam.utils;
 
 public enum TestScenarios {
-    T1("user ingin melihat data dari tanggal 1 maret sampai 31 maret status pending");
-//    T2("User edit dengan menghapus nama");
+    T1("User edit dengan menghapus nama failed"),
+    T2("User edit dengan menghapus nama Passed"),
+    T3("User edit dengan mengisi nomor bpjs kurang dari 13 digit"),
+    T4("User edit dengan menghapus nomor bpjs failed"),
+    T5("User edit dengan menghapus nomor bpjs passed"),
+    T6("User edit dengan mengisi nomor ktp kurang dari 16 digit"),
+    T7("User edit dengan menghapus nomor ktp failed"),
+    T8("User edit dengan menghapus alamat failed"),
+    T9("User edit dengan menghapus alamat passed"),
+    T10("User edit dengan mengganti kota ktp"),
+    T11("User edit dengan menghapus faskes awal failed"),
+    T12("User edit dengan mengganti faskes tujuan berbeda dengan kota ktp failed"),
+    T13("User edit dengan mengganti faskes tujuan berbeda dengan kota ktp passed"),
+    T14("User edit dengan mengganti faskes tujuan sama dengan kota ktp"),
+    T15("User edit dengan menghapus foto before"),
+    T16("User edit ganti foto before"),
+    T17("User edit dengan menghapus foto after"),
+    T18("User edit ganti foto after"),
+    T19("User edit dengan menghapus foto TTD Digital"),
+    T20("User edit ganti foto TTD"),
+    T21("User menekan tombol submit");
+
+    //---------------------------------------------test input data---------------------------------------
 //    T2("Input username null dan password null"),
 //    T3("Input username valid dan password null"),
 //    T4("Input username null dan password valid"),

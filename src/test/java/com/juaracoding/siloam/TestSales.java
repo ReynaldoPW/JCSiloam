@@ -41,7 +41,7 @@ public class TestSales {
     }
     @And("User input no bpjs valid")
     public void user_input_no_bpjs_valid(){
-        salespage.inputBpjs("1234235678545");
+        salespage.inputBpjs("1234235678972");
         extentTest.log(LogStatus.PASS,"User input no bpjs valid");
     }
     @And("User input no bpjs yang sudah terdaftar")
@@ -142,8 +142,8 @@ public class TestSales {
     }
     @Then("User mendapatkan message bpjs already exist")
     public void user_mendapatkan_message_bpjs_already_exist(){
-       Assert.assertEquals(salespage.getTxtBpjsAlreadyExist(),"The Nomor BPJS already exist.");
-       extentTest.log(LogStatus.PASS,"User mendapatkan message bpjs already exist");
+        Assert.assertEquals(salespage.getTxtBpjsAlreadyExist(),"The Nomor BPJS already exist.");
+        extentTest.log(LogStatus.PASS,"User mendapatkan message bpjs already exist");
     }
 
     @Then("User mendapatkan message field alasan harus diisi")
@@ -202,11 +202,6 @@ public class TestSales {
         Assert.assertEquals(salespage.getTxtNoKTP(),"true");
         extentTest.log(LogStatus.PASS,"input user KTP akan terhapus");
     }
-    @Then("User mendapatkan message field alamat harus diisi")
-    public void user_mendapatkan_message_field_alamat_harus_diisi(){
-        Assert.assertEquals(salespage.getTxtFieldAlamatMessage(),"Field Alamat Harus Diisi!");
-        extentTest.log(LogStatus.PASS,"User mendapatkan message field alamat harus diisi");
-    }
     @Then("User mendapat message kota ktp harus diisi")
     public void user_mendapat_message_kota_ktp_harus_diisi(){
         salespage.getTxtCity();
@@ -218,5 +213,6 @@ public class TestSales {
         Assert.assertEquals(salespage.getTxtFaskesTujuan(),"true");
         extentTest.log(LogStatus.PASS,"User mendapat message faskes tujuan harus diisi");
     }
+
 
 }
