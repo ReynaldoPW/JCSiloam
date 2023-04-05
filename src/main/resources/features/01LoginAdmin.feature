@@ -1,4 +1,5 @@
 Feature: Login Admin
+
 #  Scenario: Admin logout dari web
 #    Given Admin membuka browser dan url
 #    When Admin sudah login dan berada di home
@@ -66,3 +67,11 @@ Feature: Login Admin
 #    And Admin menekan button login
 #    Then Admin diarahkan ke halaman home
 #    And Admin logout dari web
+
+#  ===========TEST VIEW & EXPORT
+  Scenario: Input username dan password valid
+    Given Admin membuka browser dan url
+    When Admin input username yang terdaftar
+    When Admin input password yang terdaftar
+    When Admin menekan button login
+    Then Admin diarahkan ke halaman home

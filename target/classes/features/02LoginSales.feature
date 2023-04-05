@@ -55,3 +55,16 @@ Feature: Login Sales
 #    And User input password yang invalid case sensitive
 #    And User menekan button login
 #    Then User mendapatkan message Wrong username or password
+
+
+
+
+
+
+#==================TEST UPLOAD==============
+#  Scenario: User Input username dan password valid
+#    Given  Admin membuka browser dan url
+#    When User input username yang terdaftar
+#    And User input password yang terdaftar
+#    And User menekan button login
+#    Then User diarahkan ke halaman home
